@@ -33,7 +33,8 @@ function fetchingWeather(dataInfo) {
   console.log(latitude);
   console.log(longitude);
 
-  fetch()
+
+  fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=e081906e41053d0045aef1f5836faf73&units=imperial`)
     .then(function (response) {
       if (response.ok) {
         return response.json();
@@ -43,8 +44,24 @@ function fetchingWeather(dataInfo) {
     })
     .then(function (data) {
       console.log(data);
+      displayDayOne(data)
     })
     .catch(function (error) {
-      console.error(error);
+      console.log(error);
     });
+}
+
+
+
+function displayDayOne(dayOneData){
+    console.log(dayOneData.city.name)
+    let title = $('<h3>').addClass('day-header').text(dayOneData.city.name + " " + dayjs().format('(MM/DD/YYYY)') + " - Today's Forecast");
+
+    let dayTemp = $('<p>').addClass('weather-info').text('Temp: ' +dayOneData.list[0].temp.day+ " °F")
+
+    $('#todays-weather').append(title).append(dayTemp);
+
+    
+
+    
 }
