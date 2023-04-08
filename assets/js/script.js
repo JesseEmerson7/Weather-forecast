@@ -59,7 +59,11 @@ function displayDayOne(dayOneData){
 
     let dayTemp = $('<p>').addClass('weather-info').text('Temp: ' +dayOneData.list[0].temp.day+ " °F")
 
-    $('#todays-weather').append(title).append(dayTemp);
+    let dayWind = $('<p>').addClass('weather-info').text('Wind Speed: ' + dayOneData.list[0].speed + ' MPH')
+
+    let dayHumidity =  $('<p>').addClass('weather-info').text('Humidity: ' + dayOneData.list[0].humidity + ' %')
+
+    $('#todays-weather').append(title).append(dayTemp).append(dayWind).append(dayHumidity);
 
     
 
