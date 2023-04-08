@@ -4,7 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Forecast</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+      <!-- aside for the city input and local storage of past searches -->
+      <section id="aside-search">
+        <!-- search input here -->
+        <div id="search-bar-div">
+          <h2 id="search-title">Search for a City</h2>
+          <input type="text" id="search-input" placeholder="City Name" />
+          <div><button id="search-btn" type="button">Search</button></div>
+        </div>
+
+        <!-- search history to be displayed here from local storage -->
+        <div id="search-history">
+          <h2 id="history">History</h2>
+        </div>
+      </section>
+      <!-- Main section where weather is displayed from RESTful api -->
+      <section id="weather-display">
+        <!-- todays forecast to be displayed here -->
+        <div id="todays-weather"><p>todays weather here</p></div>
+        <!-- 5 day forecast to be displayed here in cards -->
+        <div id="five-day-forecast"><p>cards here with 5 day forecast</p></div>
+      </section>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

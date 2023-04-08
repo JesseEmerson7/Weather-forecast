@@ -1,0 +1,111 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+header{
+    height: 100px;
+    width: 100vw;
+    background-image: url(/assets/images/pexels-pixabay-531767.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    
+}
+
+h1{
+    font-size: 40px;
+    background-color: rgba(92, 174, 188, 0.703);
+    width:410px;
+    height: 50px;
+    border-radius: 10px;
+    border: solid white 1px;
+    box-shadow: 2px 5px 20px rgb(0, 0, 0);
+    margin-right: 200px;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+#weather-display{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(252, 255, 255, 0.548) ;
+    
+}
+
+#todays-weather{
+    width: 80vw;
+    height: 50vh;
+}
+
+#five-day-forecast{
+    height: 50vh;
+    width: 80vw;
+}
+
+#aside-search{
+    width: 20vw;
+    background-color: rgba(163, 226, 235, 0.575);
+    border-top-right-radius: 16px;
+    border-right: 1px solid black;
+}
+
+#search-bar-div{
+    border-top-right-radius: 10px;
+    text-align: center;
+    display: block;
+    padding-top: 45px;
+    padding-bottom: 30px;
+    background: rgba(31, 105, 109, 0.48);
+    border-radius: 0 16px 16px 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(20, 189, 196, 1);
+    box-shadow: -2px 2px 10px black;
+}
+
+#search-btn{
+    padding: 5px;
+    margin-top: 5px;
+    box-shadow: -2px 2px 10px black;
+}
+
+#search-input{
+    height: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    box-shadow: -2px 2px 10px black;
+}
+
+#search-title{
+    color: rgb(0, 0, 0);
+    border-bottom: solid black 1.5px;
+    margin-bottom: 10px;
+}
+
+#history {
+    font-size: large;
+    text-align: center;
+    border-bottom: solid black 1.5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgba(92, 174, 188, 0.703);
+    border-radius: 0 16px 16px 0;
+    box-shadow: -2px 2px 10px black;
+}
+
+
+
+
