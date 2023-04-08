@@ -45,6 +45,7 @@ function fetchingWeather(dataInfo) {
     .then(function (data) {
       console.log(data);
       displayDayOne(data)
+      displayCards(data.list)
     })
     .catch(function (error) {
       console.log(error);
@@ -65,7 +66,28 @@ function displayDayOne(dayOneData){
 
     $('#todays-weather').append(title).append(dayTemp).append(dayWind).append(dayHumidity);
 
-    
+};
 
-    
+
+function displayCards(cardData){
+  console.log(cardData);
+
+  let cardOne = $('#card-1').addClass('cards');
+  let cardTwo = $('#card-2').addClass('cards');
+  let cardThree = $('#card-3').addClass('cards');
+  let cardFour = $('#card-4').addClass('cards');
+  let cardFive = $('#card-5').addClass('cards');
+
+  cardOne.append($('<h4>').text(dayjs().add(1, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[1].temp.day + ' °F')).append($('<p>').text(cardData[1].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[1].humidity + ' %'));
+
+  cardTwo.append($('<h4>').text(dayjs().add(2, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[2].temp.day + ' °F')).append($('<p>').text(cardData[2].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[2].humidity + ' %'));
+
+  cardThree.append($('<h4>').text(dayjs().add(3, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[3].temp.day + ' °F')).append($('<p>').text(cardData[3].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[3].humidity + ' %'));
+
+  cardFour.append($('<h4>').text(dayjs().add(4, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[4].temp.day + ' °F')).append($('<p>').text(cardData[4].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[4].humidity + ' %'));
+
+  cardFive.append($('<h4>').text(dayjs().add(5, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[5].temp.day + ' °F')).append($('<p>').text(cardData[5].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[5].humidity + ' %'));
+
+
+
 }
