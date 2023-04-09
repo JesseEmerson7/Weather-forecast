@@ -56,13 +56,19 @@ function fetchingWeather(dataInfo) {
 
 function displayDayOne(dayOneData){
     console.log(dayOneData.city.name)
-    let title = $('<h3>').addClass('day-header').text(dayOneData.city.name + " " + dayjs().format('(MM/DD/YYYY)') + " - Today's Forecast");
+
+    let topImg = $(`<img src="https://openweathermap.org/img/wn/${dayOneData.list[0].weather[0].icon}.png" alt="Weather icon" id='top-image'>`)
+
+    let title = $('<h3>').addClass('day-header').text(dayOneData.city.name + " " + dayjs().format('(MM/DD/YYYY)'));
+    title.append(topImg)
 
     let dayTemp = $('<p>').addClass('weather-info').text('Temp: ' +dayOneData.list[0].temp.day+ " °F")
 
     let dayWind = $('<p>').addClass('weather-info').text('Wind Speed: ' + dayOneData.list[0].speed + ' MPH')
 
     let dayHumidity =  $('<p>').addClass('weather-info').text('Humidity: ' + dayOneData.list[0].humidity + ' %')
+
+    
 
     $('#todays-weather').append(title).append(dayTemp).append(dayWind).append(dayHumidity);
 
@@ -78,15 +84,15 @@ function displayCards(cardData){
   let cardFour = $('#card-4').addClass('cards');
   let cardFive = $('#card-5').addClass('cards');
 
-  cardOne.append($('<h4>').text(dayjs().add(1, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[1].temp.day + ' °F')).append($('<p>').text(cardData[1].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[1].humidity + ' %'));
+  cardOne.append($('<h4>').text(dayjs().add(1, 'day').format('MM/DD/YY'))).append(`<img src="https://openweathermap.org/img/wn/${cardData[1].weather[0].icon}.png" alt="Weather icon ">`).append($('<p>').text('Temp: '+cardData[1].temp.day + ' °F')).append($('<p>').text('Wind Speed: '+cardData[1].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[1].humidity + ' %'));
 
-  cardTwo.append($('<h4>').text(dayjs().add(2, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[2].temp.day + ' °F')).append($('<p>').text(cardData[2].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[2].humidity + ' %'));
+  cardTwo.append($('<h4>').text(dayjs().add(2, 'day').format('MM/DD/YY'))).append(`<img src="https://openweathermap.org/img/wn/${cardData[2].weather[0].icon}.png" alt="Weather icon">`).append($('<p>').text('Temp: '+cardData[2].temp.day + ' °F')).append($('<p>').text('Wind Speed: '+cardData[2].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[2].humidity + ' %'));
 
-  cardThree.append($('<h4>').text(dayjs().add(3, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[3].temp.day + ' °F')).append($('<p>').text(cardData[3].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[3].humidity + ' %'));
+  cardThree.append($('<h4>').text(dayjs().add(3, 'day').format('MM/DD/YY'))).append(`<img src="https://openweathermap.org/img/wn/${cardData[3].weather[0].icon}.png" alt="Weather icon">`).append($('<p>').text('Temp: '+cardData[3].temp.day + ' °F')).append($('<p>').text('Wind Speed: '+cardData[3].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[3].humidity + ' %'));
 
-  cardFour.append($('<h4>').text(dayjs().add(4, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[4].temp.day + ' °F')).append($('<p>').text(cardData[4].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[4].humidity + ' %'));
+  cardFour.append($('<h4>').text(dayjs().add(4, 'day').format('MM/DD/YY'))).append(`<img src="https://openweathermap.org/img/wn/${cardData[4].weather[0].icon}.png" alt="Weather icon">`).append($('<p>').text('Temp: '+cardData[4].temp.day + ' °F')).append($('<p>').text('Wind Speed: '+cardData[4].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[4].humidity + ' %'));
 
-  cardFive.append($('<h4>').text(dayjs().add(5, 'day').format('MM/DD/YY'))).append($('<p>').text('Temp: '+cardData[5].temp.day + ' °F')).append($('<p>').text(cardData[5].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[5].humidity + ' %'));
+  cardFive.append($('<h4>').text(dayjs().add(5, 'day').format('MM/DD/YY'))).append(`<img src="https://openweathermap.org/img/wn/${cardData[5].weather[0].icon}.png" alt="Weather icon">`).append($('<p>').text('Temp: '+cardData[5].temp.day + ' °F')).append($('<p>').text('Wind Speed: '+cardData[5].speed + ' MPH')).append($('<p>').text('Humidity: '+cardData[5].humidity + ' %'));
 
 
 
