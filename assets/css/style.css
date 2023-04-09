@@ -168,4 +168,14 @@ main{
     
 }
 
+.search-history-btn{
+    text-align: center;
+    width: 80%;
+    margin-left: 25px;
+    margin-top: 6px;
+    border-radius: 16px;
+    background-color: rgba(51, 177, 184, 0.158);
+    box-shadow: -2px 2px 5px black;
+}
+
 
