@@ -1,27 +1,55 @@
-//event listener for the search button
 $(document).ready(function () {
-  var localStorageArray = [];
-  var pastSearchArray = [];
-  addStoredHistory();
+  //sets locationArray to an array with info from local storage or if empty an empty array
+  const locationArray = JSON.parse(localStorage.getItem("locations")) || [];
+  displayHistory();
 
-  function addStoredHistory() {
-    let pastSearchString = localStorage.getItem("searchHistory");
-    let pastSearchArray = pastSearchString.split(",");
-    console.log(pastSearchArray);
-
-    for (i = 0; i < pastSearchArray.length; i++) {
+  //this function takes the input from the search bar and trims white space. If it is not an empty input it is saved into the locationArray and updates the array with the new city name.
+  function localSearch() {
+    let searchInput = document.getElementById("search-input").value.trim();
+    if (searchInput.trim() !== "") {
+      locationArray.push(searchInput);
+    }
+    localStorage.setItem("locations", JSON.stringify(locationArray));
+  }
+  //displays the contents of the locationArray onto the page as buttons
+  function displayHistory() {
+    $("#history-displayed").empty();
+    for (i = 0; i < locationArray.length; i++) {
       let ListItemBtn = $("<button>");
-      ListItemBtn.text(pastSearchArray[i]).addClass("search-history-btn");
-      $("#history-displayed").append(ListItemBtn);
+      ListItemBtn.text(locationArray[i]).addClass("search-history-btn");
+      $("#history-displayed").prepend(ListItemBtn);
     }
   }
 
-  function localStore() {
-    var searchAdd = $("#search-input").val();
-    localStorageArray.push(searchAdd);
-    localStorage.setItem("searchHistory", localStorageArray);
-  }
+  //if the search history buttons are clicked the page is wiped and the fetch to location api is started. the data is then passed to the weather api after checks on the response are made.
+  $("#history-displayed").click(function (event) {
+    searchTerm = event.target.innerText;
+    console.log(searchTerm);
+    console.log(event.target.innerText);
 
+    $("#todays-weather").empty();
+    $(".cards").empty();
+
+    fetch(
+      `http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm}&limit=1&appid=bbbb7f099358f595a34abd46aedb1c99`
+    )
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          window.alert("Error");
+        }
+      })
+      .then(function (data) {
+        console.log(data);
+        fetchingWeather(data[0]);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  });
+
+  //city name input is used to fetch location data from api when search button is clicked and data is sent to weather api after response status is checked.
   function cityInfo() {
     var cityInput = $("#search-input").val();
     $("#todays-weather").empty();
@@ -46,6 +74,7 @@ $(document).ready(function () {
       });
   }
 
+  //weather data is collected with a fetch to openweathermap api. response status is checked. data is sent to day one function and 5 day forecast function.
   function fetchingWeather(dataInfo) {
     console.log(dataInfo);
     var latitude = dataInfo.lat;
@@ -73,7 +102,7 @@ $(document).ready(function () {
         console.log(error);
       });
   }
-
+  //displays weather info for the current days weather conditions.
   function displayDayOne(dayOneData) {
     console.log(dayOneData.city.name);
 
@@ -104,7 +133,7 @@ $(document).ready(function () {
       .append(dayWind)
       .append(dayHumidity);
   }
-
+  //5 day forecast data is sorted and displayed on the page into the card divs.
   function displayCards(cardData) {
     console.log(cardData);
 
@@ -159,9 +188,10 @@ $(document).ready(function () {
       .append($("<p>").text("Wind Speed: " + cardData[5].speed + " MPH"))
       .append($("<p>").text("Humidity: " + cardData[5].humidity + " %"));
   }
-
+  //search history button
   $("#search-btn").click(function () {
     cityInfo();
-    localStore();
+    localSearch();
+    displayHistory();
   });
 });
