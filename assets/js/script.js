@@ -31,7 +31,7 @@ $(document).ready(function () {
     $(".cards").empty();
 
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm}&limit=1&appid=bbbb7f099358f595a34abd46aedb1c99`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${searchTerm}&limit=1&appid=bbbb7f099358f595a34abd46aedb1c99`
     )
       .then(function (response) {
         if (response.ok) {
@@ -56,7 +56,7 @@ $(document).ready(function () {
     $(".cards").empty();
 
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=1&appid=bbbb7f099358f595a34abd46aedb1c99`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=1&appid=bbbb7f099358f595a34abd46aedb1c99`
     )
       .then(function (response) {
         if (response.ok) {
@@ -84,7 +84,7 @@ $(document).ready(function () {
     console.log(longitude);
 
     fetch(
-      `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=e081906e41053d0045aef1f5836faf73&units=imperial`
+      `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=e081906e41053d0045aef1f5836faf73&units=imperial`
     )
       .then(function (response) {
         if (response.ok) {
