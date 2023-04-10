@@ -14,7 +14,7 @@ Once on the main page the user is presented with a weather dashboard. Any city n
 
 ## view <a href="https://jesseemerson7.github.io/weather-forecast/">Live page!</a>
 
- <img src="./assets/images/Screenshot Screenshot 2023-04-09 224056.png">
+ <img src="./assets/images/Screenshot 2023-04-09 224056.png">
 
 ## License
 
