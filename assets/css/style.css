@@ -9,7 +9,7 @@
 header{
     height: 100px;
     width: 100vw;
-    background-image: url(./assets/images/pexels-pixabay-531767.jpg);
+    background-image: url(/assets/images/pexels-pixabay-531767.jpg);
     background-size: cover;
     display: flex;
     align-items: center;
